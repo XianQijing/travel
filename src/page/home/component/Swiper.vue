@@ -1,7 +1,7 @@
 <template>
   <div class="wapper">
-    <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
-      <swiper-slide v-for="item in swiperList" :key="item.id">
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item in list" :key="item.id" data-swiper-autoplay="5000">
         <img :src="item.imgUrl" alt="">
       </swiper-slide>
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -12,36 +12,21 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
-      },
-      swiperList: [
-        {
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/qs/1811/3f/85a00499e2e0802.jpg'
-        },
-        {
-          id: '0002',
-          imgUrl: 'http://img1.qunarzz.com/qs/1810/25/44fe8c8edc136402.jpg'
-        }
-      ]
+        loop: true,
+        autoplay: true
+      }
     }
   },
   computed: {
-    swiper () {
-      return this.$refs.mySwiper.swiper
-    }
-  },
-  mounted () {
-    console.log('this is current swiper instance object', this.swiper)
-    this.swiper.slideTo(3, 1000, false)
-  },
-  methods: {
-    callback () {
-      console.log('ss')
+    showSwiper () {
+      return this.list.length
     }
   }
 }
@@ -54,7 +39,7 @@ export default {
   width 100%
   height 0;
   overflow hidden
-  padding-bottom 25%
+  padding-bottom 31%
   background #eeeeee
   img
     width 100%
