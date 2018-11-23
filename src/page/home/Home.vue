@@ -14,7 +14,6 @@ import HomeSwiper from './component/Swiper'
 import HomeIcons from './component/Icons'
 import HomeRecommend from './component/Recommend'
 import HomeWeekend from './component/Weekend'
-import axios from 'axios'
 export default {
   name: 'Home',
   data () {
@@ -38,7 +37,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json').then(res => {
+      this.axios.get('/api/index.json').then(res => {
         res = res.data
         if (res.ret && res.data) {
           this.city = res.data.city

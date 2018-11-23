@@ -1,7 +1,7 @@
 <template>
   <div class="wapper">
     <swiper :options="swiperOption" v-if="showSwiper">
-      <swiper-slide v-for="item in list" :key="item.id" data-swiper-autoplay="5000">
+      <swiper-slide v-for="item in list" :key="item.id" data-swiper-autoplay="3000">
         <img :src="item.imgUrl" alt="">
       </swiper-slide>
     <div class="swiper-pagination"  slot="pagination"></div>
