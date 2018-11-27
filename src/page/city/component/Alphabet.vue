@@ -58,7 +58,7 @@ export default {
           if (index >= 0 && index < this.letters.length) {
             this.$emit('change', this.letters[index])
           }
-        }, 16)
+        }, 16) // 函数节流
       }
     },
     handleTouchEnd () {
