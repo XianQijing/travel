@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-header :city="city"></home-header>
+    <home-header></home-header>
     <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
     <home-recommend :list="recommendList"></home-recommend>
@@ -18,7 +18,6 @@ export default {
   name: 'Home',
   data () {
     return {
-      city: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -40,7 +39,6 @@ export default {
       this.axios.get('/api/index.json').then(res => {
         res = res.data
         if (res.ret && res.data) {
-          this.city = res.data.city
           this.swiperList = res.data.swiperList
           this.iconList = res.data.iconList
           this.recommendList = res.data.recommendList
