@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getCity () {
-      this.axios.get('api/city.json').then(res => {
+      this.axios.get('/static/mock/city.json').then(res => {
         res = res.data
         if (res.ret && res.data) {
           const data = res.data
